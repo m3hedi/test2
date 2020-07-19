@@ -141,10 +141,10 @@
                         // create deadline 10 minutes from now
                         const timeInMinutes = 10;
                         const currentTime = Date.parse(new Date());
-                        deadline = new Date(currentTime + timeInMinutes*60*1000);
+                        deadline = 'January 01 2021';
 
                         // store deadline in cookie for future reference
-                        document.cookie = 'myClock=' + deadline + '; path=/; domain=index.html';
+                        document.cookie = 'myClock=' + deadline + '; path=/; domain=.https://m3hedi.github.io/test2/';
                         }
                         initializeClock('clockdiv', deadline);
 
