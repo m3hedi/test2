@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Custom Stylesheet-->
+    <link rel="stylesheet" href="css/main.css">
+    
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!--JQuery-->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+    <!--Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--Favicon-->
+    <link rel="icon" href="img/TechLogo.gif" type="image/gif" sizes="16x16">
+    
+    <!--Document Title-->
+    <title>Make Hutch Tech Website Great Again!</title>
+
+</head>
+<body>
+
+    <header>
+
+        <div class="logo-container">
+            <img class="Hcths-logo" src="img/TechLogo.gif" alt="Hutch Tech logo" href="index.html">
+            <h4 class="Logo" style="top: 0px;"><a href="index.html">Hutch Tech</a></h4>
+        </div>
+
+        <div class="bps-website-holder">
+            <h2 class="bps-website"><a href="https://buffaloschools.org">Buffalo Schools Website</a></h2>
+        </div>
+        
+        <div class="numbers">
+            <small>(716) 816-3888</small>
+            <small>Fax: (716) 851-3890</small>
+        </div>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a class="nav-link" href="#">Home</a></li>
+                <li><a class="nav-link" href="#">Home</a></li>
+                <li><a class="nav-link" href="#">Home</a></li>
+                <li><a class="nav-link" href="#">Home</a></li>
+                <li><a class="nav-link" href="#">Home</a></li>
+                <li><a class="nav-link" href="#">Home</a></li>
+                <li><a class="nav-link" href="#">Home</a></li>
+                <li><a class="nav-link" href="#">Home</a></li>
+                <li><a class="nav-link" href="#">Home</a></li>
+                <li><i class="fa fa-user"></i><a class="nav-link" href="#">Student Life</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+
+        <section class="left-side">
+            <div class="left-info-holder">
+                <img class="tech-logo" src="img/TechLogo.gif" alt="Tech Logo">
+                <h4 class="school-name">Hutchinson Central <br> Technical High Shcool</h4>
+                <p class="sologan"> Skill <span>-</span> Knowledge <span>-</span> Power</p>
+                <p class="principal">Dr. Gabrielle Morquecho <br> ~ Principal</p>
+
+                <div class="countdown-holder">
+                    <p class="event-title">How long until <span class="event-name"> 2021 </span> </p>
+                    <div id="clockdiv">
+                    <div>
+                        <span class="days"></span>
+                        <div class="smalltext">Days</div>
+                    </div>
+                    <div>
+                        <span class="hours"></span>
+                        <div class="smalltext">Hours</div>
+                    </div>
+                    <div>
+                        <span class="minutes"></span>
+                        <div class="smalltext">Minutes</div>
+                    </div>
+                    <div>
+                        <span class="seconds"></span>
+                        <div class="smalltext">Seconds</div>
+                    </div>
+                    </div>
+                    
+
+                    <script type="text/javascript">
+                        function getTimeRemaining(endtime) {
+                        const total = Date.parse(endtime) - Date.parse(new Date());
+                        const seconds = Math.floor((total / 1000) % 60);
+                        const minutes = Math.floor((total / 1000 / 60) % 60);
+                        const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
+                        const days = Math.floor(total / (1000 * 60 * 60 * 24));
+                        
+                        return {
+                            total,
+                            days,
+                            hours,
+                            minutes,
+                            seconds
+                        };
+                        }
+
+                        function initializeClock(id, endtime) {
+                        const clock = document.getElementById(id);
+                        const daysSpan = clock.querySelector('.days');
+                        const hoursSpan = clock.querySelector('.hours');
+                        const minutesSpan = clock.querySelector('.minutes');
+                        const secondsSpan = clock.querySelector('.seconds');
+
+                        function updateClock() {
+                            const t = getTimeRemaining(endtime);
+
+                            daysSpan.innerHTML = t.days;
+                            hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+                            minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+                            secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+
+                            if (t.total <= 0) {
+                            clearInterval(timeinterval);
+                            }
+                        }
+
+                        updateClock();
+                        const timeinterval = setInterval(updateClock, 1000);
+                        }
+
+                        let deadline;
+
+                        // if there's a cookie with the name myClock, use that value as the deadline
+                        if(document.cookie && document.cookie.match('myClock')){
+                        // get deadline value from cookie
+                        deadline = document.cookie.match(/(^|;)myClock=([^;]+)/)[2];
+                        } else {
+                        // otherwise, set a deadline 10 minutes from now and 
+                        // save it in a cookie with that name
+
+                        // create deadline 10 minutes from now
+                        const timeInMinutes = 10;
+                        const currentTime = Date.parse(new Date());
+                        deadline = new Date(currentTime + timeInMinutes*60*1000);
+
+                        // store deadline in cookie for future reference
+                        document.cookie = 'myClock=' + deadline + '; path=/; domain=index.html';
+                        }
+                        initializeClock('clockdiv', deadline);
+
+                    </script>
+                </div>
+            </div>
+            <div class="date-holder">
+                <p>Today's Date: <span id="date"></span></p>
+
+                <script>
+                var dt = new Date();
+                document.getElementById("date").innerHTML = dt.toLocaleDateString();
+                </script>
+            </div>
+        </section>
+
+        <section class="center">
+            <h4 class="title" >Welcome to Hutch Tech High School- Home of the engineers!</h4>
+            <svg height="210px" width="90%">
+                <line class="title-line" x1="13%" y1="10px" x2="98%" y2="10px" style="stroke:rgb(177, 0, 0); stroke-width: 2;" />
+              </svg>
+        </section>
+    </main>
+
+</body>
+</html>
